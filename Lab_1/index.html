@@ -54,6 +54,37 @@
         }
     </style>
 </head>
+<script>
+    var name = document.getElementById('name');
+    var pw = document.getElementById('pw');
+
+    // storing input from register-form
+    function store() {
+        localStorage.setItem('name', name.value);
+        localStorage.setItem('pw', pw.value);
+    }
+
+    // check if stored data from register-form is equal to entered data in the   login-form
+    function check() {
+
+        // stored data from the register-form
+        var storedName = localStorage.getItem('name');
+        var storedPw = localStorage.getItem('pw');
+
+        // entered data from the login-form
+        var userName = document.getElementById('userName');
+        var userPw = document.getElementById('userPw');
+
+        // check if stored data from register-form is equal to data from login form
+        if(userName.value !== storedName || userPw.value !== storedPw) {
+            alert('ERROR');
+        }else {
+            //alert('You are loged in.');
+            window.location="Home.html";
+        }
+    }
+</script>
+
 <body ng-app="facebookUtilsDemo" ng-controller="RootCtrl">
 <header>
     <section class='clearfix'>
@@ -71,9 +102,9 @@
             <div class="left-box">
                 <h1> Log In</h1>
 
-                <input type="text" name="email" placeholder="Email" ng-model="example.email"/>
-                <input type="password" name="password" placeholder="Password" ng-model="example.password"/>
-                <input type="submit" name="signup-button" value="Log In" ng-click="validate(example.email,example.password)"/>
+                <input type="text" name="name" id="userName" placeholder="Email" ng-model="example.email"/>
+                <input type="password" name="pw" id="userPw" placeholder="Password" ng-model="example.password"/>
+                <input type="submit" name="signup-button" value="Log In" ng-click="check()"/>
 
             </div>
             <div class="right-box">
@@ -84,32 +115,40 @@
                     </div>
                     <form class="form-register" method="post" name="register" novalidate>
                         <div class="input-field col s6">
-                            <input id="first-name" value="{{loggedInUser.name}}" type="text" class="validate" required >
                             <label for="first-name">First Name</label>
+                            <input id="first-name" value="{{loggedInUser.name}}"  type="text" class="validate" required >
+
                         </div>
                         <div class="input-field col s6">
-                            <input id="last-name" type="text" class="validate" required>
                             <label for="last-name">Last Name</label>
+                            <input id="last-name" type="text"class="validate" required>
+
                         </div>
-                        <div class="input-field col s6">
-                            <input id="email" type="email" name="email" ng-model="email" class="validate" required>
-                            <label for="email">Email</label>
+                        <div class="input-field col s8">
+                            <label for="name" >Email   </label>
+                            <br>
+
+                            <input id="name" type="email" name="email"  ng-model="email" class="validate" required>
+
                         </div>
                         <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid.</p>
                         <div class="input-field col s6">
-                            <input id="password" type="password" name="password" ng-model="password" ng-minlength='6' class="validate" required>
-                            <label for="password">Password</label>
+                            <label for="pw">Password</label>
+                            <input id="pw" type="password" name="password"  ng-model="password" ng-minlength='6' class="validate" required>
+
                         </div>
                         <p class="alert alert-danger" ng-show="form-register.password.$error.minlength || form.password.$invalid">Your password must be at least 6 characters.</p>
                         <div class="space-top text-center">
-                            <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
-                                <i class="material-icons left">Login</i>
+                            <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done" onclick="store()"/>
+                                <i class="material-icons left">Sign up</i>
                             </button>
                             <!---
                             <button type="button" class="waves-effect waves-light btn cancel">
                                 <i class="material-icons left">clear</i>Cancel
                             </button>
                             --->
+                            <br>
+                            <br>
                             <facebook-login-button></facebook-login-button>
                         </div>
                     </form>

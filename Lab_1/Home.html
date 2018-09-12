@@ -14,15 +14,18 @@
 <div class="container">
     <div class="jumbotron">
         <h1 align="center">Knowledge Graph</h1>
+        <br>
+        <br>
     </div>
     <br/>
 </div>
 
 <div ng-app="myApp" ng-controller="nutritionctrl" align="center">
-    <label id="labelCss">Ingredient Name: </label>
+    <label >Ingredient Name: </label>
     <input id="labelCss" type="text" name="input" ng-model="example.ingrName" ng-pattern="example.word" required ng-trim="false">
-    <button id="labelCss" ng-click="kgsearch(example.ingrName)"> Search</button>
+    <button  ng-click="kgsearch(example.ingrName)"> Search</button>
     <div class = "row">
+
     <div ng-repeat="data in kgraphRecords" style="margin:0 auto;">
         <span ng-if="data.result.image.contentUrl">
           <div class="card" style="width: 250px;margin-left:10px;">
