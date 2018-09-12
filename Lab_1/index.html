@@ -1,0 +1,140 @@
+<html>
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angular Facebook Utils</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <style>
+        html, body {
+            margin: 20px;
+        }
+        body {
+            background: #fafafa;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+        .margin-left {
+            margin-left: 10px;
+        }
+        .margin-top {
+            margin-top: 10px;
+        }
+        header {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            background-color: white;
+            padding: 25px 35px;
+            border-bottom: 1px solid #CCC;
+        }
+        header > section > div {
+            float: left;
+        }
+        header > section > div > div {
+            margin-top: 3px;
+        }
+        ul {
+            list-style-type: none;
+            margin-bottom: 5px;
+            padding-right: 10px;
+            padding-left: 0px;
+        }
+        ul li {
+            display: inline-block;
+            padding-right: 20px;
+        }
+        #pageContainer {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body ng-app="facebookUtilsDemo" ng-controller="RootCtrl">
+<header>
+    <section class='clearfix'>
+
+        <div class='margin-left' ng-show='loggedInUser.name'>
+            <div>Hello, {{loggedInUser.name}}!</div>
+        </div>
+
+        <!---<div class='margin-left' ng-hide='loggedInUser.name'>
+            <div>Hello, Stranger!</div>
+        </div>
+        ---->
+
+        <div id="login-box">
+            <div class="left-box">
+                <h1> Log In</h1>
+
+                <input type="text" name="email" placeholder="Email" ng-model="example.email"/>
+                <input type="password" name="password" placeholder="Password" ng-model="example.password"/>
+                <input type="submit" name="signup-button" value="Log In" ng-click="validate(example.email,example.password)"/>
+
+            </div>
+            <div class="right-box">
+                <div class="signup-screen">
+                    <div class="space-bot text-center">
+                        <h1>Sign up</h1>
+                        <div class="divider"></div>
+                    </div>
+                    <form class="form-register" method="post" name="register" novalidate>
+                        <div class="input-field col s6">
+                            <input id="first-name" value="{{loggedInUser.name}}" type="text" class="validate" required >
+                            <label for="first-name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last-name" type="text" class="validate" required>
+                            <label for="last-name">Last Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="email" type="email" name="email" ng-model="email" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <p class="alert alert-danger" ng-show="form-register.email.$error.email">Your email is invalid.</p>
+                        <div class="input-field col s6">
+                            <input id="password" type="password" name="password" ng-model="password" ng-minlength='6' class="validate" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <p class="alert alert-danger" ng-show="form-register.password.$error.minlength || form.password.$invalid">Your password must be at least 6 characters.</p>
+                        <div class="space-top text-center">
+                            <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
+                                <i class="material-icons left">Login</i>
+                            </button>
+                            <!---
+                            <button type="button" class="waves-effect waves-light btn cancel">
+                                <i class="material-icons left">clear</i>Cancel
+                            </button>
+                            --->
+                            <facebook-login-button></facebook-login-button>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="or" align="right">OR</div>
+        </div>
+
+        <div id="signup">
+
+        </div>
+    </section>
+
+
+</header>
+
+
+<script src="//code.angularjs.org/1.2.9/angular.min.js"></script>
+<script src="//code.angularjs.org/1.2.9/angular-route.min.js"></script>
+<script src="src/facebookUtils.min.js"></script>
+
+<!-- DEMO -->
+<script src="demo/demoApp.js"></script>
+
+</body>
+</html>
