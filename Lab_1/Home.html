@@ -13,7 +13,7 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1 align="center">Knowledge Graph</h1>
+        <h1 align="center">Recepies</h1>
         <br>
         <br>
     </div>
@@ -24,6 +24,7 @@
     <label >Ingredient Name: </label>
     <input id="labelCss" type="text" name="input" ng-model="example.ingrName" ng-pattern="example.word" required ng-trim="false">
     <button  ng-click="kgsearch(example.ingrName)"> Search</button>
+
     <div class = "row">
 
     <div ng-repeat="data in kgraphRecords" style="margin:0 auto;">
@@ -38,8 +39,10 @@
         </span>
     </div>
 
+
 </div>
 </div>
+
 
 </body>
 

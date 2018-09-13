@@ -24,7 +24,7 @@
         .margin-top {
             margin-top: 10px;
         }
-        header {
+       /* header {
             position: fixed;
             top: 0px;
             left: 0px;
@@ -38,7 +38,7 @@
         }
         header > section > div > div {
             margin-top: 3px;
-        }
+        }*/
         ul {
             list-style-type: none;
             margin-bottom: 5px;
@@ -84,9 +84,43 @@
         }
     }
 </script>
+</html><header>
+<div class="text-center hidden-xs hidden-sm"><h1>Project Description </h1></div>
+<!--This is Menu.-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+
+
+                <li><a href="#">Project details</a></li>
+                <li><a href="#">contact us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ><a href="#">logout<span
+                        class="caret"></span></a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</html></header>
 <body ng-app="facebookUtilsDemo" ng-controller="RootCtrl">
-<header>
+
     <section class='clearfix'>
 
         <div class='margin-left' ng-show='loggedInUser.name'>
@@ -165,7 +199,7 @@
     </section>
 
 
-</header>
+
 
 
 <script src="//code.angularjs.org/1.2.9/angular.min.js"></script>
@@ -174,6 +208,26 @@
 
 <!-- DEMO -->
 <script src="demo/demoApp.js"></script>
-
+</body>
+<footer>
+<nav class="navbar navbar-default marginbottom-0px">
+    <div class="container">
+        <div class="text-center padding-10px">
+            <a href="#"><i class="fa fa-facebook-square fa-3x social"></i></a>
+            <a href="#"><i class="fa fa-twitter-square fa-3x social"></i></a>
+            <a href="#"><i class="fa fa-google-plus-square fa-3x social"></i></a>
+            <a href="#"><i class="fa fa-envelope-square fa-3x social"></i></a>
+        </div></div><br/>
+    <div class="text-center">
+        <p>Contact Us</p>
+        <hr/>
+        <p><strong>Email :</strong> abs@ab.com</p>
+        <p><strong>Address :</strong></p>
+        <p>Kansas city, MO, 64119.</p>
+        <p>United States.</p>
+    </div>
+    </div>
+</nav>
+</footer>
 </body>
 </html>
