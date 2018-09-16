@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta name="google-signin-client_id" content="1051493002956-5j31iekeciodmtcf96ecq88s5u10oq7p.apps.googleusercontent.com">
+</head>
+<body>
+<div id="my-signin2"></div>
+<script>
+    function onSuccess(googleUser) {
+        console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        alert('Logged in as: ' + googleUser.getBasicProfile().getName());
+        var str = window.location.href;
+        str = str.substr(0, str.lastIndexOf("\\"));
+        window.location.href=str;
+    }
+    function onFailure(error) {
+        console.log(error);
+    }
+    function renderButton() {
+        gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 240,
+            'height': 50,
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
+        });
+    }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
