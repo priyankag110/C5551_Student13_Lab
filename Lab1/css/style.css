@@ -7,6 +7,13 @@ body {
   background: #34495e;
 
 }
+.jumbotron{
+
+  margin-top: 0px;
+  background-image: url("https://images8.alphacoders.com/884/884399.jpg");
+  background-size: cover;
+  color: white;
+}
 .script-font {
   font-family: 'Dancing Script', cursive;
 }
